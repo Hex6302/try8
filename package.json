@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --legacy-peer-deps && npm run build --prefix frontend",
-    "start": "npm install -g serve && serve -s frontend/dist -l $PORT"
+    "build": "npm run build",
+    "start": "npm start"
   },
   "keywords": [],
   "author": "",

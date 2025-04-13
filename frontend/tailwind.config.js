@@ -1,12 +1,21 @@
-import daisyui from "daisyui";
-
 /** @type {import('tailwindcss').Config} */
+import daisyui from "daisyui";
+import scrollbar from "tailwind-scrollbar";
+
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
-    extend: {},
+    extend: {
+      scrollbar: ['rounded'],
+    },
   },
-  plugins: [daisyui],
+  plugins: [
+    daisyui,
+    scrollbar,
+  ],
   daisyui: {
     themes: [
       "light",
@@ -37,10 +46,7 @@ export default {
       "lemonade",
       "night",
       "coffee",
-      "winter",
-      "dim",
-      "nord",
-      "sunset",
+      "winter"
     ],
   },
-};
+}

@@ -46,9 +46,9 @@ module.exports = defineConfig({
 })
 EOL
 
-# Build the project using the local Vite installation
+# Build the project using npx
 echo "Building project..."
-NODE_ENV=production ./node_modules/.bin/vite build --config vite.config.cjs
+NODE_ENV=production npx vite build --config vite.config.cjs
 
 # List contents of current directory
 echo "Contents of current directory:"

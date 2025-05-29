@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 set -e
 
+# Enable debug output
+set -x
+
 # Get the absolute path of the frontend directory
 FRONTEND_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT_DIR="$(dirname "$FRONTEND_DIR")"
 
+echo "Current directory: $(pwd)"
+echo "Frontend directory: $FRONTEND_DIR"
+echo "Root directory: $ROOT_DIR"
+
 # Change to frontend directory
 cd "$FRONTEND_DIR"
+echo "Changed to frontend directory: $(pwd)"
 
 # Clean install frontend dependencies
 echo "Installing frontend dependencies..."
@@ -23,11 +31,12 @@ echo "Creating temporary build configuration..."
 cat > vite.config.cjs << EOL
 const { defineConfig } = require('vite')
 const react = require('@vitejs/plugin-react')
+const path = require('path')
 
 module.exports = defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'dist',
+    outDir: path.resolve(__dirname, 'dist'),
     sourcemap: false,
     minify: true
   }
@@ -37,6 +46,18 @@ EOL
 # Build the project using the local Vite installation
 echo "Building project..."
 NODE_ENV=production npx vite build --config vite.config.cjs
+
+# List contents of current directory
+echo "Contents of current directory:"
+ls -la
+
+# List contents of dist directory if it exists
+if [ -d "dist" ]; then
+    echo "Contents of dist directory:"
+    ls -la dist
+else
+    echo "dist directory not found!"
+fi
 
 # Clean up temporary files
 rm vite.config.cjs

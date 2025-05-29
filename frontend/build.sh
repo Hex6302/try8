@@ -15,14 +15,15 @@ npm install --legacy-peer-deps
 # Change to frontend directory
 cd "$FRONTEND_DIR"
 
-# Install frontend dependencies including Vite
+# Clean install frontend dependencies
 echo "Installing frontend dependencies..."
+rm -rf node_modules package-lock.json
 npm install --legacy-peer-deps
-npm install --save-dev vite @vitejs/plugin-react
+npm install --save-dev vite@latest @vitejs/plugin-react@latest
 
 # Build the project using local Vite installation
 echo "Building project..."
-npx vite build
+NODE_ENV=production npx vite build
 
 # Verify the build output exists
 if [ ! -d "dist" ]; then

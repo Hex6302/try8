@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
 set -e
 
-# Ensure we're in the frontend directory
-cd "$(dirname "$0")"
+# Get the absolute path of the frontend directory
+FRONTEND_DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT_DIR="$(dirname "$FRONTEND_DIR")"
 
-# Install dependencies including Vite
-echo "Installing dependencies..."
-npm install
+# Change to root directory
+cd "$ROOT_DIR"
+
+# Install root dependencies
+echo "Installing root dependencies..."
+npm install --legacy-peer-deps
+
+# Change to frontend directory
+cd "$FRONTEND_DIR"
+
+# Install frontend dependencies including Vite
+echo "Installing frontend dependencies..."
+npm install --legacy-peer-deps
 npm install --save-dev vite @vitejs/plugin-react
 
 # Build the project

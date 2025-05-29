@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --legacy-peer-deps && npm run build --prefix frontend",
-    "start": "npm install -g serve && serve -s frontend/dist -l $PORT"
+    "build": "cd frontend && chmod +x build.sh && ./build.sh",
+    "start": "npm run start --prefix backend"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,6 @@
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17",
-    "tailwind-scrollbar": "^3.0.5"
+    "tailwindcss": "^3.4.17"
   }
 }

@@ -20,6 +20,9 @@ echo "Changed to frontend directory: $(pwd)"
 echo "Installing frontend dependencies..."
 rm -rf node_modules package-lock.json
 npm cache clean --force
+
+# Install dependencies with legacy peer deps
+echo "Installing dependencies..."
 npm install --legacy-peer-deps
 
 # Install Vite and React plugin explicitly
@@ -45,7 +48,7 @@ EOL
 
 # Build the project using the local Vite installation
 echo "Building project..."
-NODE_ENV=production npx vite build --config vite.config.cjs
+NODE_ENV=production ./node_modules/.bin/vite build --config vite.config.cjs
 
 # List contents of current directory
 echo "Contents of current directory:"

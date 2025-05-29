@@ -4,9 +4,10 @@ set -e
 # Ensure we're in the frontend directory
 cd "$(dirname "$0")"
 
-# Install dependencies
+# Install dependencies including Vite
 echo "Installing dependencies..."
 npm install
+npm install --save-dev vite @vitejs/plugin-react
 
 # Build the project
 echo "Building project..."

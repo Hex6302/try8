@@ -4,10 +4,9 @@ services:
     env: static
     buildCommand: |
       cd frontend
-      npm install
-      npm install -g vite
-      npm run build
-    staticPublishPath: ./frontend/dist
+      chmod +x build.sh
+      ./build.sh
+    staticPublishPath: frontend/dist
     routes:
       - type: rewrite
         source: /*

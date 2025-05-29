@@ -6,7 +6,7 @@ services:
       cd frontend
       chmod +x build.sh
       ./build.sh
-    staticPublishPath: frontend/dist
+    staticPublishPath: ./frontend/dist
     routes:
       - type: rewrite
         source: /*

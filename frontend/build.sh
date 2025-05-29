@@ -20,9 +20,9 @@ echo "Installing frontend dependencies..."
 npm install --legacy-peer-deps
 npm install --save-dev vite @vitejs/plugin-react
 
-# Build the project
+# Build the project using local Vite installation
 echo "Building project..."
-npm run build
+npx vite build
 
 # Verify the build output exists
 if [ ! -d "dist" ]; then

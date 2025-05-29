@@ -19,11 +19,15 @@ cd "$FRONTEND_DIR"
 echo "Installing frontend dependencies..."
 rm -rf node_modules package-lock.json
 npm install --legacy-peer-deps
+
+# Install Vite and React plugin globally
+echo "Installing Vite globally..."
+npm install -g vite@latest
 npm install --save-dev vite@latest @vitejs/plugin-react@latest
 
-# Build the project using local Vite installation
+# Build the project
 echo "Building project..."
-NODE_ENV=production npx vite build
+NODE_ENV=production ./node_modules/.bin/vite build
 
 # Verify the build output exists
 if [ ! -d "dist" ]; then

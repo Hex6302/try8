@@ -2,7 +2,7 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.8",
     "axios": "^1.7.7",
     "chat-app": "file:..",
     "date-fns": "^4.1.0",
@@ -23,19 +24,20 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@tailwindcss/postcss7-compat": "^2.2.17",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "daisyui": "^4.12.14",
     "eslint": "^9.13.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
-    "postcss": "^8.4.49",
-    "tailwind-scrollbar": "^3.0.5",
-    "tailwindcss": "^3.4.15",
-    "vite": "^5.4.18"
+    "postcss": "^8.5.4",
+    "tailwind-scrollbar": "^4.0.2",
+    "tailwindcss": "^4.1.8",
+    "vite": "^5.4.10"
   }
 }

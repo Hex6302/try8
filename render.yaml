@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: frontend
+    env: static
+    buildCommand: |
+      cd frontend
+      npm install
+      npm install -g vite
+      npm run build
+    staticPublishPath: ./frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html 
